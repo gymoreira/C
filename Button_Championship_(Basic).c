@@ -12,322 +12,357 @@
 */
 
 #include <stdio.h> // Suporta E/S com arquivos
+#include <stdlib.h>
 
 int main(void){
- int rep;
- // descrição do campeonato
- printf("Este programa serve para computar as estat%csticas de um campeonato mirim de\n\
-futebol de bot%co. A competi%c%co %c bem simples. Re%cne cinco times de futebol de\n\
-bot%co: Bahia, Feirense, Fluminense, Juazeirense e Vit%cria. Todos os times jogam\n\
-contra todos e o campe%co %c o time com maior n%cmero de pontos. Para cada partida\n\
-disputada, o vencedor ganha 3 (tr%cs) pontos e o perdedor n%co ganha ponto. Em\n\
-caso de empate, os dois times ganham 1 (um) ponto cada. O time campe%co %c aquele\n\
-que obtiver maior n%cmero de pontos na competi%c%co. Em caso de empate, o campe%co\n\
-%c o time com maior n%cmero de vit%crias. Caso o empate persista, o campe%co %c o\n\
-time com maior n%cmero de gols. Como j%c ocorreram 20 edi%c%ces o programa repetir%c\n\
-21 (vinte e uma) vezes. Para cada competi%c%co, o programa mostrar%c, o n%cmero de\n\
-pontos, vit%crias, o n%cmero de gols feitos no campeonato e a media de gols por\n\
-partida. E o time vencedor.\n\n\n", 161, 198, 135, 198, 130, 163, 198,162, 198, 130, 163, 136, 198, 198, 130, 163, 135, 198, 198, 130, 163,162, 198, 130, 163, 160, 135, 228, 160, 135, 198, 160, 163, 162, 163,162,163);
+  int held, h; //competitions was held
 
- for(rep=1; rep<22; rep++){ // Estrutura de Repetição
+  
+  
+  // competition description
+  printf("\n\n\n");
+  printf("This program serves to compute the statistics of a football championship\n\
+football button. The competition is very simple. It gathers five football teams\n\
+of button: Bahia, Feirense, Fluminense, Juazeirense and Vitoria. All teams play\n\
+against each other and the champion is the team with the highest number of\n\
+points. For each game played, the winner gets three (3) points and the loser\n\
+does not get point. In case of a tie, both teams get one (1) point each. \n\
+The champion team is the one that obtains the highest number of points in \n\
+the competition. In case of a tie, the champion is the team with the highest\n\
+number of victories. If the tie persists, the champion is the team with the\n\
+highest number of goals. Since there were 20 editions, the program would \n\
+repeat 21 (twenty-one) times. For each competition, the program will show\n\
+the number of points, victories, the number of goals scored in the league\n\
+and the average number of goals per match. And the winning team.\n\n\n");
 
-	// Variaveis Zeradas
-
-	/*ba = time do bahia, g= gols do time, m= media do time, p=ponos
-	 * do time, v= vitorias do time;*/
-	int ba=0, gba=0, mba=0, pba=0, vba=0;
-	/*fe = time do feirense, g= gols do time, m= media do time,
-	 * p= ponos do time, v= vitorias do time;*/
-	int fe=0, gfe=0, mfe=0, pfe=0, vfe=0;
-	/*fl = time do fluminense, g= gols do time, m= media do time,
-	 * p= ponos do time, v= vitorias do time;*/
-	int fl=0, gfl=0, mfl, pfl=0, vfl=0;
-	/*ju = time do juazeirense, g= gols do time, m= media do time,
-	 * p= ponos do time, v+time = vitorias do time;*/
-	int ju=0, gju=0, mju=0, pju=0, vju=0;
-	/*vi = time do vitoria, g= gols do time, m= media do time,
-	 * p= ponos do time, v= vitorias do time;*/
-	int vi=0, gvi=0, mvi=0, pvi=0, vvi=0;
-	int pa,pe,pl,pu,pi;
-	pa=pe=pl=pu=pi=0;
-
-	// Edição
-    printf("                       %d%c Edi%c%co do Campeonato                                  \n\n", rep, 166, 135, 198);
-    printf(" Resultado do jogo entre: Bahia x Feirense\n");// 1ª Rodada de jogos
+  printf("How many competitions was held?\n");
+  scanf("%d", &h);
+  printf("\n\n\n");
+  held = h;
+  while(held >0){// Estrutura de Repetição
+    char take[2];
+    int repeat = 1;
+    int lot = random() % 5;
+    // Variaveis Zeradas
+    /*ba = time do bahia, g= gols do time, m= media do time, p=ponos
+    * do time, v= vitorias do time;*/
+    int ba=0, gba=0, vba=0;
+    /*fe = time do feirense, g= gols do time, m= media do time,
+    * p= ponos do time, v= vitorias do time;*/
+    int fe=0, gfe=0, vfe=0;
+    /*fl = time do fluminense, g= gols do time, m= media do time,
+    * p= ponos do time, v= vitorias do time;*/
+    int fl=0, gfl=0, vfl=0;
+    /*ju = time do juazeirense, g= gols do time, m= media do time,
+    * p= ponos do time, v+time = vitorias do time;*/
+    int ju=0, gju=0, vju=0;
+    /*vi = time do vitoria, g= gols do time, m= media do time,
+    * p= ponos do time, v= vitorias do time;*/
+    int vi=0, gvi=0, vvi=0;
+    int pa=0, pe=0, pl=0, pu=0, pi=0;
+    // Edição
+    printf("                       %d%c Edi%c%co do Campeonato                                  \n\n", repeat, 166, 135, 198);
+    printf(" Result of the match between: Bahia x Feirense\n");// 1ª Rodada de jogos
     printf("\nBahia:\n");
-    scanf("%d",&ba);
+    scanf("%s", take);
+    ba = atoi(take);
 
     printf("\nFeirense:\n");
-    scanf("%d",&fe);
+    scanf("%s", take);
+    fe = atoi(take);
 
     gba += ba;// gols feitos e calculo para média
     gfe += fe;
 
     if(ba>fe){
-      pba += 30000;//soma da pontuação e vitória
-      pba += 3;//soma da pontuação e vitória
+      pa += 3;//soma da pontuação e vitória
       vba += 1;
     }
     else if(ba<fe){
-      pfe += 30000;
       pe += 3;
       vfe += 1;
     }
     else{
-      pba += 1000;//Caso de empate
-      pfe += 1000;
       pa += 1;//Caso de empate
       pe += 1;
     }
 
-    printf("\n Resultado do jogo entre: Bahia x Fluminense\n");
+    printf("\n Result of the match between: Bahia x Fluminense\n");
     printf("\nBahia:\n");
-    scanf("%d",&ba);
+    scanf("%s", take);
+    ba = atoi(take);
 
     printf("\nFluminense:\n");
-    scanf("%d",&fl);
+    scanf("%s", take);
+    fl = atoi(take);
 
     gba += ba;// gols feitos e calculo para média
     gfl += fl;
 
     if(ba>fl){
-      pba += 30000;//soma da pontuação e vitória
       vba += 1;
       pa += 3;//soma da pontuação e vitória
     }
     else if(ba<fl){
-      pfl += 30000;
       vfl += 1;
       pl += 3;
     }
     else{
-      pba += 1000;//Caso de empate
-      pfl += 1000;
       pa += 1;//Caso de empate
       pl += 1;
     }
 
-    printf("\n Resultado do jogo entre: Bahia x Juazeirense\n");
+    printf("\n Result of the match between: Bahia x Juazeirense\n");
 
     printf("\nBahia:\n");
-    scanf("%d",&ba);
+    scanf("%s", take);
+    ba = atoi(take);
     printf("\nJuazeirense:\n");
-    scanf("%d",&ju);
+    scanf("%s", take);
+    ju = atoi(take);
 
     gba += ba;// gols feitos e calculo para média
     gju += ju;
 
     if(ba>ju){
-      pba += 30000;//soma da pontuação e vitória
       pa += 3;//soma da pontuação e vitória
       vba += 1;
     }
     else if(ba<ju){
-      pju += 30000;
       pu += 3;
       vju += 1;
     }
     else{
-      pba += 1000;//Caso de empate
-      pju += 1000;
       pa += 1;
       pu += 1;
     }
 
-    printf("\n Resultado do jogo entre: Bahia x Vit%cria\n", 162);
+    printf("\n Result of the match between: Bahia x Vit%cria\n", 162);
 
     printf("\nBahia:\n");
-    scanf("%d",&ba);
+    scanf("%s", take);
+    ba = atoi(take);
     printf("\nVit%cria:\n",162);
-    scanf("%d",&vi);
+    scanf("%s", take);
+    vi = atoi(take);
 
     gba += ba;// gols feitos e calculo para média
     gvi += vi;
 
     if(ba>vi){
-      pba += 30000;//soma da pontuação e vitória
       pa += 3;
       vba += 1;
     }
     else if(ba<vi){
-      pvi += 30000;
       pi += 3;
       vvi += 1;
     }
     else{
-      pba += 1000;//Caso de empate
-      pvi += 1000;
       pa += 1;
       pi += 1;
     }
 
     // 2ª Rodada de jogos
-    printf("\n Resultado do jogo entre: Feirense x Fluminense\n");
+    printf("\n Result of the match between: Feirense x Fluminense\n");
 
     printf("\nFeirense:\n");
-    scanf("%d",&fe);
+    scanf("%s", take);
+    fe = atoi(take);
     printf("\nFluminense:\n");
-    scanf("%d",&fl);
+    scanf("%s", take);
+    fl = atoi(take);
 
     gfe += fe;// gols feitos e calculo para média
     gfl += fl;
 
     if(fe>fl){
-      pfe += 30000;//soma da pontuação e vitória
       vfe += 1;
       pe += 3;
     }
     else if(fe<fl){
-      pfl += 30000;
       pl += 3;
       vfl += 1;
     }
     else{
-      pfe += 1000;//Caso de empate
-      pfl += 1000;
       pe += 1;
       pl += 1;
     }
 
-    printf("\n Resultado do jogo entre: Feirense x Juazeirense\n");
+    printf("\n Result of the match between: Feirense x Juazeirense\n");
 
     printf("\nFeirense:\n");
-    scanf("%d",&fe);
+    scanf("%s", take);
+    fe = atoi(take);
     printf("\nJuazeirense:\n");
-    scanf("%d",&ju);
+    scanf("%s", take);
+    ju = atoi(take);
 
     gfe += fe;// gols feitos e calculo para média
     gju += ju;
 
     if(fe>ju){
-      pfe += 30000;//soma da pontuação e vitória
       pe += 3;
       vfe += 1;
     }
     else if(fe<ju){
-      pju += 30000;
       pu += 3;
       vju += 1;
     }
     else{
-      pfe += 1000;//Caso de empate
-      pju += 1000;
       pe += 1;
       pu += 1;
     }
 
-    printf("\n Resultado do jogo entre: Feirense x Vit%cria\n", 162);
+    printf("\n Result of the match between: Feirense x Vit%cria\n", 162);
 
     printf("\nFeirense:\n");
-    scanf("%d",&fe);
+    scanf("%s", take);
+    fe = atoi(take);
     printf("\nVit%cria:\n",162);
-    scanf("%d",&vi);
+    scanf("%s", take);
+    vi = atoi(take);
 
     gfe += fe;// gols feitos e calculo para média
     gvi += vi;
 
     if(fe>vi){
-      pfe += 30000;//soma da pontuação e vitória
       pe += 3;
       vfe += 1;
     }
     else if(fe<vi){
-      pvi += 30000;
       pi += 3;
       vvi += 1;
     }
     else{
-      pfe += 1000;//Caso de empate
-      pvi += 1000;
       pe += 1;
       pi += 1;
     }
 
     // 3ª Rodada de jogos
-    printf("\n Resultado do jogo entre: Fluminense x Juazeirense\n");
+    printf("\n Result of the match between: Fluminense x Juazeirense\n");
 
     printf("\nFluminense:\n");
-    scanf("%d",&fl);
+    scanf("%s", take);
+    fl = atoi(take);
     printf("\nJuazeirense:\n");
-    scanf("%d",&ju);
+    scanf("%s", take);
+    ju = atoi(take);
 
     gfl += fl;// gols feitos e calculo para média
     gju += ju;
 
     if(fl>ju){
-      pfl += 30000;//soma da pontuação e vitória
       pl += 3;
       vfl += 1;
     }
     else if(fl<ju){
-      pju += 30000;
       pu += 3;
       vju += 1;
     }
     else{
-      pfl += 1000;//Caso de empate
-      pju += 1000;
       pl += 1;
       pu += 1;
     }
 
-    printf("\n Resultado do jogo entre: Fluminense x Vit%cria\n", 162);
+    printf("\n Result of the match between: Fluminense x Vit%cria\n", 162);
 
     printf("\nFluminense:\n");
-    scanf("%d",&fl);
+    scanf("%s", take);
+    fl = atoi(take);
     printf("\nVit%cria:\n",162);
-    scanf("%d",&vi);
+    scanf("%s", take);
+    vi = atoi(take);
 
     gfl += fl;// gols feitos e calculo para média
     gvi += vi;
 
     if(fl>vi){
-      pfl += 30000;//soma da pontuação e vitória
       pl += 3;
       vfl += 1;
     }
     else if(fl<vi){
-      pvi += 30000;
       pi += 3;
       vvi += 1;
     }
     else{
-      pfl += 1000;//Caso de empate
-      pvi += 1000;
       pl += 1;
       pi += 1;
     }
 
     // 4ª e Ultima Rodada de jogos
-    printf("\n Resultado do jogo entre: Juazeirense x Vit%cria\n", 162);
+    printf("\n Result of the match between: Juazeirense x Vit%cria\n", 162);
 
     printf("\nJuazeirense:\n");
-    scanf("%d",&ju);
+    scanf("%s", take);
+    ju = atoi(take);
     printf("\nVit%cria:\n",162);
-    scanf("%d",&vi);
+    scanf("%s", take);
+    vi = atoi(take);
 
     gju += ju;// gols feitos e calculo para média
     gvi += vi;
 
     if(ju>vi){
-      pju = pju + 30000;//soma da pontuação e vitória
       pu += 3;
       vju = vju + 1;
     }
     else if(ju<vi){
-      pvi = pvi + 30000;
       pi += 3;
       vvi = vvi + 1;
     }
     else{
-      pju = pju + 1000;//Caso de empate
-      pvi = pvi + 1000;
       pu += 1;
       pi += 1;
     }
 
+    //logic for the comparison of score, wins and goal balance.
+    int saldop=pa;
+
+    if (pe>saldop){
+      saldop=pe;
+    }
+    if (pl>saldop){
+      saldop=pl;
+    }
+    if (pu>saldop){
+      saldop=pu;
+    }
+    if (pi>saldop){
+      saldop=pi;
+    }
+
+    int saldov=vba;
+
+    if (vfe>saldov){
+      saldov=vfe;
+    }
+    if (vfl>saldov){
+      saldov=gfl;
+    }
+    if (vju>saldov){
+      saldov=vju;
+    }
+    if (vvi>saldov){
+      saldov=vvi;
+    }
+
+    int saldo=gba;
+
+    if (gfe>saldo){
+      saldo=gfe;
+    }
+    if (gfl>saldo){
+      saldo=gfl;
+    }
+    if (gju>saldo){
+      saldo=gju;
+    }
+    if (gvi>saldo){
+      saldo=gvi;
+    }
+
     //P1 ( Tabela de Rendimentos dos Times )
-    printf("\n\n\n                  Tabela de Desempenho dos Times da %d%c Edi%c%co\n\n\n",rep,166, 135, 198);
+    printf("\n\n\n                  Tabela de Desempenho dos Times da %d%c Edi%c%co\n\n\n", repeat, 166, 135, 198);
 
     printf(" Time\t     Pontos\t  Vitorias\tGols no Campeonato\tMedia de gols\n");
     printf("\n Bahia      %5d         %5d               %5d                 %2.2f\n", pa, vba, gba,(float) gba/4);
@@ -336,108 +371,100 @@ partida. E o time vencedor.\n\n\n", 161, 198, 135, 198, 130, 163, 198,162, 198, 
     printf(" Juazeirense%5d         %5d               %5d                 %2.2f\n", pu, vju, gju, (float) gju/4);
     printf(" Vit%cria    %5d         %5d               %5d                 %2.2f\n\n\n\n", 162, pi, vvi, gvi, (float) gvi/4);
 
-	/*Vencedor por Pontos( o único que tiver maior pontos vencerá caso
-	 * isso não aconteça vai pra criterio de desempate)*/
-	if((pba > pfe) && (pba > pfl) && (pba > pju) && (pba > pvi)){
-	  printf("            Bahia %c o novo Vencedor!\n\n\n",130);
-	}
-	else if((pfe > pba) && (pfe > pfl) && (pfe > pju) && (pfe > pvi)){
-	  printf("            Feirense %c o novo Vencedor!\n\n\n",130);
-	}
-	else if((pfl > pba) && (pfl > pfe) && (pfl > pju) && (pfl > pvi)){
-      printf("            Fluminense %c o novo Vencedor!\n\n\n",130);
+    /*Vencedor por Pontos( o único que tiver maior pontos vencerá caso
+     * isso não aconteça vai pra criterio de desempate)*/
+    if((pa > pe) && (pa > pl) && (pa > pu) && (pa > pi)){
+      printf("            Bahia %c o Vencedor por pontos!\n\n\n",130);
     }
-    else if((pju > pba) && (pju > pfe) && (pju > pfl) && (pju > pvi)){
-      printf("            Juazeirense %c o novo Vencedor!\n\n\n",130);
+    else if((pe > pa) && (pe > pl) && (pe > pu) && (pe > pi)){
+      printf("            Feirense %c o Vencedor por pontos!\n\n\n",130);
     }
-    else if((pvi > pba) && (pvi > pfe) && (pvi > pfl) && (pvi > pju)){
-	  printf("            Vit%cria %c o novo Vencedor!\n\n\n", 162, 130);
-	}
+    else if((pl > pa) && (pl > pe) && (pl > pu) && (pl > pi)){
+      printf("            Fluminense %c o Vencedor por pontos!\n\n\n",130);
+    }
+    else if((pu > pa) && (pu > pe) && (pu > pl) && (pu > pi)){
+      printf("            Juazeirense %c o Vencedor por pontos!\n\n\n",130);
+    }
+    else if((pi > pa) && (pi > pe) && (pi > pl) && (pi > pu)){
+      printf("            Vit%cria %c o Vencedor por pontos!\n\n\n", 162, 130);
+    }
 
-	/*Criterio de desempate: Vencedor por Vitórias( o único que tiver
-	 * maior vitórias vencerá caso isso não aconteça vai pro outro
-	 * criterio de desempate)*/
-	else if((vba+pba > vfe+pfe) && (vba+pba > vfl+pfl) && (vba+pba > vju+pju) && (vba+pba > vvi+pvi)){
-      printf("           Bahia %c o novo Vencedor!\n\n\n",130);
+  	/*Criterio de desempate: Vencedor por Vitórias( o único que tiver
+  	 * maior vitórias vencerá caso isso não aconteça vai pro outro
+  	 * criterio de desempate)*/
+  	else if((vba > vfe) && (vba > vfl) && (vba > vju) && (vba > vvi) && (saldop==pa)){
+      printf("           Bahia %c o Vencedor por vitorias!\n\n\n",130);
     }
-    else if((vfe+pfe > vba+pba) && (vfe+pfe > vfl+pfl) && (vfe+pfe > vju+pju) && (vfe+pfe > vvi+pvi)){
-      printf("            Feirense %c o novo Vencedor!\n\n\n",130);
+    else if((vfe > vba) && (vfe > vfl) && (vfe > vju) && (vfe > vvi) && (saldop==pe)){
+      printf("            Feirense %c o Vencedor por vitorias!\n\n\n",130);
     }
-    else if((vfl+pfl > vba+pba) && (vfl+pfl > vfe+pfe) && (vfl+pfl > vju+pju) && (vfl+pfl > vvi+pvi)){
-      printf("            Fluminense %c o novo Vencedor!\n\n\n",130);
+    else if((vfl > vba) && (vfl > vfe) && (vfl > vju) && (vfl > vvi) && (saldop==pl)){
+      printf("            Fluminense %c o Vencedor por vitorias!\n\n\n",130);
     }
-    else if((vju+pju > vba+pba) && (vju+pju > vfe+pfe) && (vju+pju > vfl+pfl) && (vju+pju > vvi+pvi)){
-      printf("            Juazeirense %c o novo Vencedor!\n\n\n",130);
+    else if((vju > vba) && (vju > vfe) && (vju > vfl) && (vju > vvi) && (saldop==pu)){
+      printf("            Juazeirense %c o Vencedor por vitorias!\n\n\n",130);
     }
-    else if((vvi+pvi > vba+pba) && (vvi+pvi > vfe+pfe) && (vvi+pvi > vfl+pfl) && (vvi+pvi > vju+pju)){
-      printf("            Vit%cria %c o novo Vencedor!\n\n\n", 162, 130);
+    else if((vvi > vba) && (vvi > vfe) && (vvi > vfl) && (vvi > vju) && (saldop==pi)){
+      printf("            Vit%cria %c o Vencedor por vitorias!\n\n\n", 162, 130);
     }
 
     /*Criterio de desempate: Vencedor por Gols (o único que tiver o
      * saldo maior ou igual de gols vencerá caso isso não aconteça vai
-     * pro outro criterio de desempate). */
-
-
-    vba*=10000;
-    mba= pba+vba+gba;
-
-	vfe*=10000;
-    mfe= pfe+vfe+gfe;
-
-    vfl*=10000;
-    mfl= pfl+vfl+gfl;
-
-   vju*=10000;
-    mju= pju+vju+gju;
-
-    vvi*=10000;
-    mvi= pvi+vvi+gvi;
-
-	if((mba >= mfe) && (mba >= mfl) && (mba >= mju) && (mba >= mvi)){
-	  printf("            Bahia %c o novo Vencedor!\n\n\n",130);
-	}
-	else if((mfe >= mba) && (mfe >= mfl) && (mfe >= mju) && (mfe >= mvi)){
-	  printf("            Feirense %c o novo Vencedor!\n\n\n",130);
-	}
-	else if((mfl >= mba) && (mfl >= mfe) && (mfl >= mju) && (mfl >= mvi)){
-      printf("            Fluminense %c o novo Vencedor!\n\n\n",130);
+     * pro outro criterio de desempate).*/
+  	else if((gba > gfe) && (gba > gfl) && (gba > gju) && (gba > gvi) && (saldop==pa) && (saldov==vba)){
+  	  printf("            Bahia %c o Vencedor por gols!\n\n\n",130);
+  	}
+  	else if((gfe > gba) && (gfe > gfl) && (gfe > gju) && (gfe > gvi) && (saldop==pe) && (saldov==vfe)){
+  	  printf("            Feirense %c o Vencedor por gols!\n\n\n",130);
+  	}
+  	else if((gfl > gba) && (gfl > gfe) && (gfl > gju) && (gfl > gvi) && (saldop==pl) && (saldov==vfl)){
+        printf("            Fluminense %c o Vencedor por gols!\n\n\n",130);
     }
-    else if((mju >= mba) && (mju >= mfe) && (mju >= mfl) && (mju >= mvi)){
-      printf("            Juazeirense %c o novo Vencedor!\n\n\n",130);
+    else if((gju > gba) && (gju > gfe) && (gju > gfl) && (gju > gvi) && (saldop==pu) && (saldov==vju)){
+        printf("            Juazeirense %c o Vencedor por gols!\n\n\n",130);
     }
-    else if((mvi >= mba) && (mvi >= mfe) && (mvi >= mfl) && (mvi >= mju)){
-      printf("            Vit%cria %c o novo Vencedor!\n\n\n", 162, 130);
+    else if((gvi > gba) && (gvi > gfe) && (gvi > gfl) && (gvi > gju) && (saldop==pi) && (saldov==vvi)){
+        printf("            Vit%cria %c o Vencedor por gols!\n\n\n", 162, 130);
     }
 
-	/*ULTIMO CRITERIO DE DESEMPATE (Caso aja falha! o programa
-	 * escolherar o vensedor por ordem alfabetica).*/
-	else if((gba == gfe) || (gba == gfl) || (gba == gju) || (gba == gvi) || (pba > 5)){
-	  printf("           Bahia %c o novo Vencedor por Ordem Alfabetica\n\n\n",130);
-	}
-	else if((gfe == gba) || (gfe == gfl) || (gfe == gju) || (gfe == gvi) || (pfe > 5)){
-	  printf("            Feirense %c o novo Vencedor por Ordem Alfabetica\n\n\n",130);
-	}
-	else if((gfl == gba) || (gfl == gfe) || (gfl == gju) || (gfl == gvi) || (pfl > 5)){
-	  printf("            Fluminense %c o novo Vencedor por Ordem Alfabetica\n\n\n",130);
-	}
-	else if((gju == gba) || (gju == gfe) || (gju == gfl) || (gju == gvi) || (pju > 5)){
-	  printf("            Juazeirense %c o novo Vencedor por Ordem Alfabetica\n\n\n",130);
-	}
-	else if((gvi == gba) || (gvi == gfe) || (gvi == gfl) || (gvi == gju) || (pvi > 5)){
-	  printf("            Vit%cria %c o novo Vencedor por Ordem Alfabetica\n\n\n", 162, 130);
-	}
+  	/*ULTIMO CRITERIO DE DESEMPATE (o programa
+  	 * escolherar o vencedor por sorteio).*/
+    else{
+      int chosen = 1;
 
-	//Se tudo falhar!!! ( isso servirar para uma Blindagem Extra! ).
-	else{
-	  printf(" Por sorteio VIT%cRIA %c o novo Vencedor\n\n\n", 224, 130);
-	}
+      do {
+        if ((lot == 0) && (saldop == pa) && (saldo == gba)){
+          printf(" Por sorteio o Bahia %c o Vencedor\n\n\n", 130);
+          chosen=0;
+        }
+        if ((lot == 1) && (saldop == pe) && (saldo == gfe)){
+          printf(" Por sorteio o Feirense %c o Vencedor\n\n\n", 130);
+          chosen=0;
+        }
+        if ((lot == 2) && (saldop == pl) && (saldo == gfl)){
+          printf(" Por sorteio o Fluminense %c o Vencedor\n\n\n", 130);
+          chosen=0;
+        }
+        if ((lot == 3) && (saldop == pu) && (saldo == gju)){
+          printf(" Por sorteio o Juazeirense %c o Vencedor\n\n\n", 130);
+          chosen=0;
+        }
+        if ((lot == 4) && (saldop == pi) && (saldo == gvi)){
+          printf(" Por sorteio o VIT%cRIA %c o novo Vencedor\n\n\n", 224, 130);
+          chosen=0;
+        }
+        lot = random() % 5;
+      } while(chosen ==1);
+    }
+    held--;
+    repeat++;
 
     //fim de uma Edição
-	printf(" Aperte uma Tecla se Deseja Continuar...\n\n                                      Caso queira sair feche o programa!!! \n\n\n");
-
+    //printf(" Aperte uma Tecla se Deseja Continuar...\n\n\n");
     //Pois só fecharar depois da 21 (vigésima primeira) Edição.
   }
 
-  printf(" Obrigado por utilizar o Ip software%c\n\n :) Tchau!!!\n\n", 184);
+  printf(" Obrigado por utilizar o software%c\n\n :) Bye!!!\n\n", 184);
+  
   return(0);
 }
