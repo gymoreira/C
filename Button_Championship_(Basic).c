@@ -15,10 +15,7 @@
 #include <stdlib.h>
 
 int main(void){
-  int held, h; //competitions was held
-
-  
-  
+  int held, h; //competitions was held  
   // competition description
   printf("\n\n\n");
   printf("This program serves to compute the statistics of a football championship\n\
